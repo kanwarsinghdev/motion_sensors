@@ -13,9 +13,10 @@ import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 
 /** MotionSensorsPlugin */
-class MotionSensorsPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
+class MotionSensorsPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private val METHOD_CHANNEL_NAME = "motion_sensors/method"
     private val ACCELEROMETER_CHANNEL_NAME = "motion_sensors/accelerometer"
     private val GYROSCOPE_CHANNEL_NAME = "motion_sensors/gyroscope"
