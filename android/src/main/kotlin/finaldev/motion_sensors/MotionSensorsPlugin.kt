@@ -15,7 +15,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
 /** MotionSensorsPlugin */
-class MotionSensorsPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
+class MotionSensorsPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
     private val METHOD_CHANNEL_NAME = "motion_sensors/method"
     private val ACCELEROMETER_CHANNEL_NAME = "motion_sensors/accelerometer"
     private val GYROSCOPE_CHANNEL_NAME = "motion_sensors/gyroscope"
