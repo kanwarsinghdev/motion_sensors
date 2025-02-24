@@ -9,14 +9,15 @@ import android.view.Surface
 import android.view.WindowManager
 import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
+import io.flutter.embedding.engine.plugins.activity.ActivityAware
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 
 /** MotionSensorsPlugin */
-class MotionSensorsPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+class MotionSensorsPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware {
     private val METHOD_CHANNEL_NAME = "motion_sensors/method"
     private val ACCELEROMETER_CHANNEL_NAME = "motion_sensors/accelerometer"
     private val GYROSCOPE_CHANNEL_NAME = "motion_sensors/gyroscope"
@@ -116,6 +117,22 @@ class MotionSensorsPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             Sensor.TYPE_GAME_ROTATION_VECTOR -> orientationStreamHandler!!.setUpdateInterval(interval)
             Sensor.TYPE_ROTATION_VECTOR -> absoluteOrientationStreamHandler!!.setUpdateInterval(interval)
         }
+    }
+
+    override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+        // Implement if needed
+    }
+
+    override fun onDetachedFromActivityForConfigChanges() {
+        // Implement if needed
+    }
+
+    override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+        // Implement if needed
+    }
+
+    override fun onDetachedFromActivity() {
+        // Implement if needed
     }
 }
 
